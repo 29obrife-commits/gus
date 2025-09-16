@@ -1,33 +1,73 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
     <head>
         <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+        <title>Sliding Cube</title>
     </head>
     <body>
         <a-scene>
-        <a-box
-            position="0 1 -5"
-            depth="2"
-            height="2"
-            width="2"
-            color="tomato"
-            animation="
-                property: rotation;
+            <!-- Set the background -->
+            <a-sky color="lightblue"></a-sky>   
+         
+         
+            <!-- Set the floor -->
+            <a-plane position="0 0 0" height="100" 
+                    width="100" rotation="-90 0 0"
+                    color="black">
+            </a-plane>
+            
+            <!-- Animated box that slides along the floor, once -->
+            <a-box position="-8 1.5 -10" color="blue"
+                    height="3" width="3" depth="1"
+                    animation__1="
+                    property: position;
+                    from: -8 1.5 -10;
+                    to: 8 1.5 -10;
+                         dur: 2000;
+                    
+                                    loop: false
+
+                    "
+                     animation__2="
+                     property: rotation;
                 from: 0 0 0;
                 to: 0 360 0;
                 dur: 2000;
-                easing: linear;
-                loop: true;
-            "
-            
-            animation__2="
-            property: position;
-            from: 0 1 -5;
-            to: 3 1 -5;
-            
-            color="tomato">
-            ">
-        </a-box>
-        </a-scene>
+                loop: true
+                    "
+                       animation__3="
+                property:scale;
+                from: 0 1 -5;
+                to: 0 0 0;
+                     startEvents: click;     "
+           
+            ></a-box>
+             <a-sphere
+                color="yellow" position="0 1 -5" radius="1"
+                animation="
+                    property: color;
+                    from: rgb(255,0,0);
+                    to: rgb(0, 0, 150);
+                    startEvents: click;
+                     loop: true
+                "
+                
+                animation__2="
+                property:scale;
+                from: 0 1 -5;
+                to: 0 0 0;
+                                    startEvents: click;         
+                                     
+                "
+                >
+                 
+                 
+            </a-sphere>
+                        <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+                    </a-scene>
+                    
+
     </body>
 </html>

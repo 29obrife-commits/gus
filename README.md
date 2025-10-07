@@ -2,14 +2,52 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-        <title>Sliding Cube</title>
-    </head>
-    <body>
+         <meta charset="utf-8">
+  <title>A-Frame with Countdown and Background Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><style>
+      body { margin: 0; overflow: hidden; }
+
+ #start-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 1em 2em;
+        font-size: 1.5em;
+        background: #222;
+        color: white;
+        border: none;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+ #countdown {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 8em;
+        font-weight: bold;
+        color: white;
+        display: none;
+        z-index: 9;
+        text-shadow: 4px 4px 10px rgba(0,0,0,0.7);
+      }
+    </style>
+
+</head>
+    <body> 
+    <!-- Audio element -->
+    <audio id="bg-music" loop>
+      <source src="INSERT SOURCE PATH" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+ <!-- UI elements -->
+    <button id="start-button">Start Experience</button>
+    <div id="countdown">3</div>
         <a-scene>
             <!-- Set the background -->
             <a-sky color="lightblue"></a-sky>   
-         
-         
             <!-- Set the floor -->
             <a-plane position="0 0 0" height="100" 
                     width="100" rotation="-90 0 0"

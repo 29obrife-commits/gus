@@ -40,7 +40,6 @@
     <!-- Audio element -->
     <audio id="bg-music" loop>
       <source src="https://github.com/29obrife-commits/gus/raw/refs/heads/main/glicher%20fien.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
     </audio>
  <!-- UI elements -->
     <button id="start-button">Start Experience</button>
@@ -53,8 +52,7 @@
                     width="100" rotation="-90 0 0"
                     color="black">
             </a-plane>
-            
-            <!-- Animated box that slides along the floor, once -->
+              <!-- Animated box that slides along the floor, once -->
             <a-box position="-8 1.5 -10" color="blue"
                     height="3" width="3" depth="1"
                     animation__1="
@@ -63,9 +61,7 @@
                     to: 8 1.5 -10;
                          dur: 2000;
                     
-                                    loop: false
-
-                    "
+                                    loop: false            "
                      animation__2="
                      property: rotation;
                 from: 0 0 0;
@@ -104,7 +100,35 @@
                         <a-camera>
                 <a-cursor></a-cursor>
             </a-camera>
-                    </a-scene>
+                    </a-scene>  <!-- JavaScript -->
+    <script>
+      const music = document.getElementById('bg-music');
+      const startBtn = document.getElementById('start-button');
+      const countdownEl = document.getElementById('countdown');
+
+      startBtn.addEventListener('click', () => {
+        startBtn.style.display = 'none';
+        startCountdown();
+      });
+
+      function startCountdown() {
+        let count = 3;
+        countdownEl.style.display = 'block';
+        countdownEl.textContent = count;
+
+        const interval = setInterval(() => {
+          count--;
+          if (count > 0) {
+            countdownEl.textContent = count;
+          } else {
+            clearInterval(interval);
+            countdownEl.style.display = 'none';
+            music.play();
+          }
+        }, 1000);
+      }
+    </script>
+
                     
 
     </body>

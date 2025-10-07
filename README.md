@@ -39,7 +39,7 @@
     <body> 
     <!-- Audio element -->
     <audio id="bg-music" loop>
-      <source src="INSERT SOURCE PATH" type="audio/mpeg">
+      <source src="https://github.com/29obrife-commits/gus/raw/refs/heads/main/glicher%20fien.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
  <!-- UI elements -->
